@@ -143,7 +143,6 @@ if __name__ == '__main__':
 
     while not exit.is_set():
 
-        data = json.load(open("example_data.json"))
         tradfri.extract_metrics(logger, data)
 
         sleepTime = 0.0
