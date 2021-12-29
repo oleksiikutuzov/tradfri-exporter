@@ -6,7 +6,7 @@ Export IKEA Tradfri devices battery status to Prometheus
 It is considered you already have python installed. Install required packages
 
 ```
-pip3 install pytradfri aiocoap DTLSSocket 
+pip3 install pytradfri 
 ```
 Then install `coap-client`
 ```
