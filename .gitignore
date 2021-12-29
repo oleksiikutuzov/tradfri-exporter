@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 tradfri_standalone_psk.conf
 .vscode/launch.json
+.DS_Store
