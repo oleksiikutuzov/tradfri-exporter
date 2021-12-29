@@ -47,7 +47,7 @@ User=<username>
 Restart=always
 Environment=HOST_PORT=XXXX
 Environment=UPDATE_INTERVAL=XXXX
-ExecStart=/usr/bin/python3 /home/<username>/tradfri-exporter/main.py <GATEWAY_IP> -K <SECURITY_CODE>
+ExecStart=/usr/bin/python3 /home/<username>/tradfri-exporter/main.py "<GATEWAY_IP>" -K <SECURITY_CODE>
 
 [Install]
 WantedBy=multi-user.target
