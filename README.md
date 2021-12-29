@@ -13,10 +13,6 @@ Then install `coap-client`
 git clone https://github.com/home-assistant-libs/pytradfri 
 sudo ./pytradfri/script/install-coap-client.sh
 ```
-Set permissons to `tradfri-exporter` folder
-```
-chmod 755 tradfri-exporter
-```
 ## Run with systemd
 
 Almost all versions of Linux come with systemd out of the box, but if your’s didn’t come with it then you can simply run the following command:
