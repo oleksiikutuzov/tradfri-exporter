@@ -44,10 +44,13 @@ After=multi-user.target
 [Service]
 Type=simple
 User=<username>
-Restart=always
+Restart=on-failure
+WorkingDirectory=/home/<username>/tradfri-exporter
+# Restart, but not more than once every 30s (for testing purposes)
+StartLimitInterval=30
 Environment=HOST_PORT=XXXX
 Environment=UPDATE_INTERVAL=XXXX
-ExecStart=/usr/bin/python3 /home/<username>/tradfri-exporter/main.py "<GATEWAY_IP>" -K <SECURITY_CODE>
+ExecStart=/usr/bin/python3 main.py "<GATEWAY_IP>" -K "<SECURITY_CODE>"
 
 [Install]
 WantedBy=multi-user.target
