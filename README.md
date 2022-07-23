@@ -1,16 +1,79 @@
 # tradfri-exporter
 Export IKEA Tradfri devices battery status to Prometheus
 
-## Installation
+## Run with Docker
+
+You can run the image in the background with the following command:
+```
+docker run -d -p 8090:9090 --restart unless-stopped -e HOST_PORT=9090 -e UPDATE_INTERVAL=10.0 -e GATEWAY_IP=XXXXXX -e SECURITY_CODE=XXXXXX tradfri-exporter
+```
+
+To check image status:
+```
+docker ps -a
+```
+
+To stop running images:
+```
+docker stop tradfri-exporter
+```
+
+To start running the image:
+```
+docker start tradfri-exporter
+```
+
+To delete:
+```
+docker rm tradfri-exporter
+```
+## Run with Docker-compose
+
+Create a `docker-compose.yml` file and add your configuration to it:
+
+```
+version: "3"
+
+services:
+  tradfri-exporter:
+    container_name: tradfri-exporter
+    image: oleksiikutuzov/tradfri-exporter:latest
+    restart: always
+    ports:
+      - 8090:9090
+    environment:
+      HOST_PORT: 9090
+      GATEWAY_IP: XXXXXX
+      SECURITY_CODE: XXXXXX
+      UPDATE_INTERVAL: 10.0
+```
+
+Then run the image with the following command:
+
+```
+docker-compose up -d
+```
+### To update the image:
+
+```
+docker pull oleksiikutuzov/tradfri-exporter
+```
+
+And use the `docker-compose` command again:
+
+```
+docker-compose up -d
+```
+## Manual installation
 
 It is considered you already have python installed. Install required packages
 
 ```
-pip3 install pytradfri 
+pip3 install pytradfri
 ```
 Then install `coap-client`
 ```
-git clone https://github.com/home-assistant-libs/pytradfri 
+git clone https://github.com/home-assistant-libs/pytradfri
 sudo ./pytradfri/script/install-coap-client.sh
 ```
 ## Run with systemd

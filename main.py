@@ -18,12 +18,12 @@ import argparse
 import os
 
 """
-Enviroment variable lables used to read values from.
-HOST_PORT       Sets port to run the prometheus http server, default to 80  
+Environment variable labels used to read values from.
+HOST_PORT       Sets port to run the prometheus http server, default to 80
 UPDATE_INTERVAL Sets interval between updates in seconds, default is 3600.0 seconds or 1 hour
 """
-POST_LABLE = 'HOST_PORT'
-TIMEOUT_LABLE = 'UPDATE_INTERVAL'
+PORT_LABEL = 'HOST_PORT'
+TIMEOUT_LABEL = 'UPDATE_INTERVAL'
 
 exit = Event()
 
@@ -42,11 +42,11 @@ config = {
     'timeout': 3600.0
 }
 
-if POST_LABLE in os.environ:
-    config['host_port'] = int(os.environ[POST_LABLE])
+if PORT_LABEL in os.environ:
+    config['host_port'] = int(os.environ[PORT_LABEL])
 
-if TIMEOUT_LABLE in os.environ:
-    config['timeout'] = float(os.environ[TIMEOUT_LABLE])
+if TIMEOUT_LABEL in os.environ:
+    config['timeout'] = float(os.environ[TIMEOUT_LABEL])
 
 
 def create_logger(scope):

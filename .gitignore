@@ -127,6 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
 tradfri_standalone_psk.conf
-.vscode/launch.json
+.vscode
 .DS_Store
+docker-compose.yml
